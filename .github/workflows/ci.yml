@@ -35,8 +35,10 @@ jobs:
       - name: Run tests
         env:
           REDIS_URL: redis://localhost:6379/0
+          PYTHONPATH: ${{ github.workspace }}
         run: |
-          pytest -q
+          python -m pytest -q
+
 
   docker_build:
     runs-on: ubuntu-latest
